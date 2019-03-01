@@ -12,6 +12,8 @@
 		73B4981B2229D78400E4CE50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B498192229D78400E4CE50 /* Main.storyboard */; };
 		73B4981D2229D78500E4CE50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73B4981C2229D78500E4CE50 /* Assets.xcassets */; };
 		73B498202229D78500E4CE50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B4981E2229D78500E4CE50 /* LaunchScreen.storyboard */; };
+		73B4982A2229D88C00E4CE50 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B498292229D88C00E4CE50 /* NetworkService.swift */; };
+		73B4982C2229D8DB00E4CE50 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B4982B2229D8DB00E4CE50 /* Feed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		73B4981C2229D78500E4CE50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73B4981F2229D78500E4CE50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73B498212229D78500E4CE50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73B498292229D88C00E4CE50 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		73B4982B2229D8DB00E4CE50 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		73B498142229D78400E4CE50 /* AppleMusicRss */ = {
 			isa = PBXGroup;
 			children = (
+				73B498282229D87D00E4CE50 /* Service */,
+				73B498272229D87300E4CE50 /* ModelClass */,
 				73B498152229D78400E4CE50 /* AppDelegate.swift */,
 				73B498172229D78400E4CE50 /* ViewController.swift */,
 				73B498192229D78400E4CE50 /* Main.storyboard */,
@@ -62,6 +68,22 @@
 				73B498212229D78500E4CE50 /* Info.plist */,
 			);
 			path = AppleMusicRss;
+			sourceTree = "<group>";
+		};
+		73B498272229D87300E4CE50 /* ModelClass */ = {
+			isa = PBXGroup;
+			children = (
+				73B4982B2229D8DB00E4CE50 /* Feed.swift */,
+			);
+			path = ModelClass;
+			sourceTree = "<group>";
+		};
+		73B498282229D87D00E4CE50 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				73B498292229D88C00E4CE50 /* NetworkService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +158,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73B498182229D78400E4CE50 /* ViewController.swift in Sources */,
+				73B4982C2229D8DB00E4CE50 /* Feed.swift in Sources */,
+				73B4982A2229D88C00E4CE50 /* NetworkService.swift in Sources */,
 				73B498162229D78400E4CE50 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
