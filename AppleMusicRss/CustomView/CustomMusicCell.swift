@@ -16,6 +16,7 @@ class CustomMusicCell: UITableViewCell {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
         return label
     }()
     
@@ -50,12 +51,16 @@ class CustomMusicCell: UITableViewCell {
         artistImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         artistImageView.contentMode = .scaleAspectFit
         
-        musicNameLabel.leftAnchor.constraint(equalTo: self.artistImageView.rightAnchor).isActive = true
-        musicNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        musicNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        musicNameLabel.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        //musicNameLabel.leftAnchor.constraint(equalTo: self.artistImageView.rightAnchor).isActive = true
+        musicNameLabel.centerXAnchor.constraint(equalTo: self.artistImageView.centerXAnchor).isActive = true
+        musicNameLabel.topAnchor.constraint(equalTo: artistImageView.bottomAnchor, constant: 10).isActive = true
+//        musicNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+ //       musicNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//        musicNameLabel.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+     //   musicNameLabel.centerYAnchor.constraint(equalTo: self.artistImageView.centerYAnchor).isActive = true
+        musicNameLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
         
-        self.bottomAnchor.constraint(equalTo: artistImageView.bottomAnchor, constant: 10).isActive = true
+//        self.bottomAnchor.constraint(equalTo: artistImageView.bottomAnchor, constant: 10).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
