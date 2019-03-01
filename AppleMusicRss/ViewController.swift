@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NetworkServiceDelegate {
     //Instance properties
@@ -23,6 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Initialize view
         tableView.delegate = self
         tableView.register(CustomMusicCell.self, forCellReuseIdentifier: "MusicCell")
+        tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         //Make API Request
         requestForData()
     }
@@ -44,9 +46,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let music = feed?.feed.results[indexPath.row]
         cell.musicName = music?.artistName
         let imageURL = URL(string: (feed?.feed.results[indexPath.row].artworkUrl100)!)
-        let imageData = try? Data(contentsOf: imageURL!)
-        DispatchQueue.main.async {
-            cell.artistImage = UIImage(data: imageData!)
+        //let imageData = try? Data(contentsOf: imageURL!)
+        cell.artistImageView.sd_setImage(with: imageURL) { (image, error, cachetype, url) in
+            if let imageFetched = image{
+                let averageColor = imageFetched.averageColor
+                if let bgcolor = averageColor{
+                    UIView.animate(withDuration: 0.2) {
+                        self.view.backgroundColor = bgcolor
+                    }
+                    
+                }
+            }
         }
         return cell
     }
@@ -78,6 +88,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
             self.dismiss(animated: true, completion: nil)
         }))
+    }
+}
+
+extension UIImage {
+    var averageColor: UIColor? {
+        guard let inputImage = CIImage(image: self) else { return nil }
+        let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
+        
+        guard let filter = CIFilter(name: "CIAreaAverage", parameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: extentVector]) else { return nil }
+        guard let outputImage = filter.outputImage else { return nil }
+        
+        var bitmap = [UInt8](repeating: 0, count: 4)
+        let context = CIContext(options: [.workingColorSpace: kCFNull])
+        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
+        
+        return UIColor(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255, alpha: CGFloat(bitmap[3]) / 255)
     }
 }
 
