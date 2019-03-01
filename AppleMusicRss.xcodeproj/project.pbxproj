@@ -14,6 +14,7 @@
 		73B498202229D78500E4CE50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B4981E2229D78500E4CE50 /* LaunchScreen.storyboard */; };
 		73B4982A2229D88C00E4CE50 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B498292229D88C00E4CE50 /* NetworkService.swift */; };
 		73B4982C2229D8DB00E4CE50 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B4982B2229D8DB00E4CE50 /* Feed.swift */; };
+		73B4982F2229DB7B00E4CE50 /* CustomMusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B4982E2229DB7B00E4CE50 /* CustomMusicCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		73B498212229D78500E4CE50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73B498292229D88C00E4CE50 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		73B4982B2229D8DB00E4CE50 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		73B4982E2229DB7B00E4CE50 /* CustomMusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMusicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		73B498142229D78400E4CE50 /* AppleMusicRss */ = {
 			isa = PBXGroup;
 			children = (
+				73B4982D2229DB5E00E4CE50 /* CustomView */,
 				73B498282229D87D00E4CE50 /* Service */,
 				73B498272229D87300E4CE50 /* ModelClass */,
 				73B498152229D78400E4CE50 /* AppDelegate.swift */,
@@ -84,6 +87,14 @@
 				73B498292229D88C00E4CE50 /* NetworkService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		73B4982D2229DB5E00E4CE50 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				73B4982E2229DB7B00E4CE50 /* CustomMusicCell.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +172,7 @@
 				73B4982C2229D8DB00E4CE50 /* Feed.swift in Sources */,
 				73B4982A2229D88C00E4CE50 /* NetworkService.swift in Sources */,
 				73B498162229D78400E4CE50 /* AppDelegate.swift in Sources */,
+				73B4982F2229DB7B00E4CE50 /* CustomMusicCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
