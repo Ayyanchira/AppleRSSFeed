@@ -46,38 +46,47 @@ class CustomMusicCell: UITableViewCell {
     
     fileprivate func setConstraints() {
         
+        artistImageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        artistImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        artistImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        
+        let portraitContraints = [
+            artistImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            musicNameLabel.centerXAnchor.constraint(equalTo: self.artistImageView.centerXAnchor),
+            musicNameLabel.topAnchor.constraint(equalTo: artistImageView.bottomAnchor, constant: 10),
+            musicNameLabel.widthAnchor.constraint(equalToConstant: 150)
+        ]
+        
+        let landscapeLayoutConstraints = [
+            artistImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            musicNameLabel.leftAnchor.constraint(equalTo: self.artistImageView.rightAnchor, constant: 10),
+            musicNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
+            musicNameLabel.widthAnchor.constraint(equalToConstant: 100)
+        ]
         
         let orientation = UIDevice.current.orientation
         if orientation == .portrait {
-            artistImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-            artistImageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-            artistImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-            artistImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-            artistImageView.contentMode = .scaleAspectFit
+            for constraint in landscapeLayoutConstraints{
+                constraint.isActive = false
+            }
             
-            //musicNameLabel.leftAnchor.constraint(equalTo: self.artistImageView.rightAnchor).isActive = true
-            musicNameLabel.centerXAnchor.constraint(equalTo: self.artistImageView.centerXAnchor).isActive = true
-            musicNameLabel.topAnchor.constraint(equalTo: artistImageView.bottomAnchor, constant: 10).isActive = true
-            //        musicNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-            //       musicNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-            //        musicNameLabel.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-            //   musicNameLabel.centerYAnchor.constraint(equalTo: self.artistImageView.centerYAnchor).isActive = true
-            musicNameLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
+            for constraint in portraitContraints{
+                constraint.isActive = true
+            }
         }
-        else {
-            artistImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-            artistImageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-            artistImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-            artistImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-//            artistImageView.contentMode = .scaleAspectFit
-            
-            musicNameLabel.leftAnchor.constraint(equalTo: self.artistImageView.rightAnchor, constant: 10).isActive = true
-            //musicNameLabel.centerXAnchor.constraint(equalTo: self.artistImageView.centerXAnchor).isActive = true
-            musicNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 150).isActive = true
-            musicNameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        }
+//        else {
+//            for constraint in landscapeLayoutConstraints{
+//                constraint.isActive = true
+//            }
+//            for constraint in portraitContraints{
+//                constraint.isActive = false
+//            }
+//            
+//            
+//        }
+        artistImageView.contentMode = .scaleAspectFit
         
-
+        
         
 //        self.bottomAnchor.constraint(equalTo: artistImageView.bottomAnchor, constant: 10).isActive = true
     }
@@ -93,6 +102,8 @@ class CustomMusicCell: UITableViewCell {
         if let image = artistImage{
             artistImageView.image = image
         }
+        
+        setConstraints()
     }
     
     
